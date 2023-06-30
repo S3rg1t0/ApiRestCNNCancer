@@ -1,0 +1,48 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API TOKIO",
+    "title": "Ejericio 3",
+    "version": "1.0"
+  },
+  "basePath": "/tokio/1.0",
+  "consumes": [
+    "multipart/form-data"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/predict": {
+      "post": {
+        "operationId": "functions.predict",
+        "tags": ["Predicción"],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "image",
+            "type": "file",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prediction result",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "probability": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
